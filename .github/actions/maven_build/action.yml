@@ -1,5 +1,5 @@
-name: Replace-With-Your-Action-Name
-description: Replace-With-Your-Action-Description
+name: Building Maven with custom action
+description: Using a custom action 
 runs:
   using: composite
   steps:
