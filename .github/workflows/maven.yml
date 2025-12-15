@@ -31,3 +31,6 @@ jobs:
       uses: ./.github/actions/maven_build
     - name: Build Dockerfile
       uses: ./.github/actions/docker_build
+      with: 
+        image_name: academy
+        tag_name: try
