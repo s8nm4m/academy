@@ -29,3 +29,4 @@ runs:
 
         docker build . \
           --file "${{ inputs.path_dockerfile }}" \
+          --tag "${{ inputs.image_name }}:${TAG}"
