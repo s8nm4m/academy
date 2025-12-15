@@ -8,6 +8,6 @@ runs:
   using: composite
   steps:
     - shell: bash
-      runs: |
+      run: |
         docker tag "${{ inputs.docker_image }}" "${{ inputs.docker_username }}/${{ inputs.docker_image }}"
         docker push "${{ inputs.docker_username }}/${{ inputs.docker_image }}"
