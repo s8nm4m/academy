@@ -42,5 +42,5 @@ jobs:
     - name: push to docker hub
       uses: ./.github/actions/docker_push
       with:
-        docker_username: ${{ var.DOCKERHUB_USERNAME }}
+        docker_username: ${{ vars.DOCKERHUB_USERNAME }}
         docker_image: 'academy:try'
