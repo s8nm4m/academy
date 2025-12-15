@@ -1,0 +1,7 @@
+name: Replace-With-Your-Action-Name
+description: Replace-With-Your-Action-Description
+runs:
+  using: composite
+  steps:
+    - run: mvn -B package --file ./base_code/pom.xml
+      shell: bash
