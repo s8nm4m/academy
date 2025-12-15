@@ -28,6 +28,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: new custom action
-      uses: ./github/actions/maven_build
+      uses: ./.github/actions/maven_build
     - name: Build Dockerfile
       run: docker build . --file ./base_code/Dockerfile --tag academy:$(date +%s)
