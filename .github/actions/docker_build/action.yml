@@ -4,7 +4,7 @@ inputs:
   path_dockerfile:
     description: "Replace-With-Your-Input-Description"
     required: false
-    default: ./base_code/Dockerfile
+    default: "./base_code/Dockerfile"
   image_name:
     description: "Specifies the name for the generated Docker image" 
     required: true
