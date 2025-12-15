@@ -1,7 +1,7 @@
 FROM maven:3.8.6-amazoncorretto-17 as build
 WORKDIR /app
 
-COPY ./pom.xml ./pom.xml
+COPY ./base_code/pom.xml ./pom.xml
 
 RUN mvn dependency:go-offline
 
