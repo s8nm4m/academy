@@ -43,4 +43,4 @@ jobs:
       uses: ./.github/actions/docker_push
       with:
         docker_username: ${{ vars.DOCKERHUB_USERNAME }}
-        docker_image: 'academy:try'
+        docker_image: "academy:try"
