@@ -1,0 +1,13 @@
+name: Publish the image to docker hub
+inputs:
+  docker_username:
+    required: true
+  docker_image:
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      runs: |
+        docker tag "${{ inputs.docker_image }}" "${{ inputs.docker_username }}/${{ inputs.docker_image }}"
+        docker push "${{ inputs.docker_username }}/${{ inputs.docker_image }}"
