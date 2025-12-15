@@ -1,26 +1,31 @@
 name: Build Docker with custom action
-description: Replace-With-Your-Action-Description
+description: Build a Docker image from a given Dockerfile with optional tag
 inputs:
   path_dockerfile:
-    description: "Replace-With-Your-Input-Description"
+    description: "Path to the Dockerfile (relative to repo root or current working dir)"
     required: false
     default: "./base_code/Dockerfile"
   image_name:
-    description: "Specifies the name for the generated Docker image" 
+    description: "Specifies the name for the generated Docker image"
     required: true
   tag_name:
-    description: "Specifies the tag to be added to the final image"
+    description: "Specifies the tag to be added to the final image; if empty, current epoch seconds are used"
     required: false
-runs:
-  using: composite
-  steps:
-    - run: |
-            if [ -z "${{ inputs.tag_name }}" ]; then
-                export TAG=$(date +%s)
-            else
-                export TAG="${{ inputs.tag_name }}"
-            fi
 
-        echo "Update me with the necessary commands"
-        docker build . --file "${{ inputs.path_dockerfile }}" --tag "${{ inputs.image_name }}:${TAG}"
+runs:
+  using: "composite"
+  steps:
+    - name: Build docker image
       shell: bash
+      run: |
+        if [ -z "${{ inputs.tag_name }}" ]; then
+          TAG="$(date +%s)"
+        else
+          TAG="${{ inputs.tag_name }}"
+        fi
+
+        echo "Building image: ${{ inputs.image_name }}:${TAG}"
+        echo "Using Dockerfile: ${{ inputs.path_dockerfile }}"
+
+        docker build . \
+          --file "${{ inputs.path_dockerfile }}" \
